@@ -1,0 +1,155 @@
+# .NET Core
+*.dll
+*.exe
+*.pdb
+*.suo
+*.cache
+*.log
+*.vscode
+project.lock.json
+project.fragment.lock.json
+artifacts/
+bin/
+obj/
+testResults/
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# User-specific files
+*.userprefs
+*.suo
+*.user
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+# ReSharper-specific files
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Rider vs. ReShaper settings
+*.sln.DotSettings.user
+*.sln.DotSettings
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# macOS
+.DS_Store
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+/[Uu]nityGenerated/
+
+# Unreal Engine
+*.sdf
+*.opensdf
+*.sln.VC.opendb
+*.sln.VC.db
+*.suo
+DerivedDataCache/
+Intermediate/
+Saved/
+.vscode/
+
+# Flutter/Dart
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/App.framework/Flutter
+**/ios/Flutter/Flutter.framework/Flutter
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Pods/
+**/macos/Flutter/Flutter.framework/Flutter
+**/macos/Flutter/flutter_export_environment.sh
+**/macos/Pods/
+**/web/packages/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+/build/
+
+# Android/Android Studio
+**/android/**/gradle-wrapper.properties
+**/android/**/local.properties
+**/android/**/.gradle
+**/android/**/build/
+**/android/**/captures/
+**/android/**/.idea
+**/android/**/gradle/
+**/android/**/.gradle/
+**/android/**/gradlew
+**/android/**/gradlew.bat
+**/android/**/gradle-wrapper.jar
+**/android/**/gradle-wrapper.properties
+**/android/**/settings.gradle
+**/android/**/local.properties
+**/android/**/gradle.properties
+**/android/**/wrapper/
+**/android/.gradle
+**/android/.idea/
+**/android/build/
+**/android/captures/
+**/android/.externalNativeBuild
+**/android/.cxx/
+
+# iOS/Xcode
+**/ios/**/.generated/
+**/ios/Flutter/App.framework/
+**/ios/Flutter/Flutter.framework/
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Flutter/gen_snapshot
+**/ios/Flutter/ios_configuration_report.json
+**/ios/Flutter/.last_build_id
+**/ios/Pods/
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+# Build Folders (subfolder for each project)
+.netcore/
+*/bin/
+*/obj/
