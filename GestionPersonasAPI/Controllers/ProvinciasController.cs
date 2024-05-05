@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BaseDeDatos.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 using Models.Responses;
 using Services.IRepository;
 
@@ -22,13 +23,14 @@ namespace GestionPersonasAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<GetProvinciasListResponse>> GetProvincias()
+        public async Task<ActionResult<Result<GetProvinciasListResponse>>> GetProvincias()
         {
             try
             {
+                var resultado = new Result<GetProvinciasListResponse>();
                 var provincias = await _provinciaRepository.GetProvincias();
 
-                var resultado = _mapper.Map<GetProvinciasListResponse>(provincias);
+                resultado.Return = _mapper.Map<GetProvinciasListResponse>(provincias);
 
                 return Ok(resultado);
             }

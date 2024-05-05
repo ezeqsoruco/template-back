@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 using Models.Entities;
 using Models.Requests;
 using Models.Responses;
@@ -23,13 +24,14 @@ namespace GestionPersonasAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<GetPersonasListResponse>> GetPersonas()
+        public async Task<ActionResult<Result<GetPersonasListResponse>>> GetPersonas()
         {
             try
             {
-                var personas = await _personaRepository.GetPersonasList();
+                var resultado = new Result<GetPersonasListResponse>();
+                var personas = await _personaRepository.ObtenerPersonasList();
 
-                var resultado = _mapper.Map<GetPersonasListResponse>(personas);
+                resultado.Return = _mapper.Map<GetPersonasListResponse>(personas);
 
                 return Ok(resultado);
             }
@@ -37,6 +39,25 @@ namespace GestionPersonasAPI.Controllers
             {
                 _logger.LogError(e, "Error al obtener personas.", new { deatalle = e.InnerException?.Message });
                 return BadRequest(new { error = "Error al obtener personas.", detalle = e.InnerException?.Message });
+            }
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Result<GetPersonaResponse>>> GetPersona(int id)
+        {
+            try
+            {
+                var resultado = new Result<GetPersonaResponse>();
+                var persona = await _personaRepository.ObtenerPersona(id);
+
+                resultado.Return = _mapper.Map<GetPersonaResponse>(persona);
+
+                return Ok(resultado);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
             }
         }
 

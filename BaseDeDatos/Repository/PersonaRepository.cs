@@ -11,7 +11,7 @@ namespace BaseDeDatos.Repository
 
         }
 
-        public async Task<List<Persona>> GetPersonasList()
+        public async Task<List<Persona>> ObtenerPersonasList()
         {
             try
             {
@@ -25,6 +25,20 @@ namespace BaseDeDatos.Repository
                 throw e;
             }
 
+        }
+
+        public async Task<Persona> ObtenerPersona(int id)
+        {
+            try
+            {
+                var persona = await Context.Personas.Where(x => x.Id == id).FirstAsync();
+                return persona;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         }
 
         public async Task<Persona> AgregarPersona(Persona persona)
