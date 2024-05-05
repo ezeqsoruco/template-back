@@ -7,16 +7,18 @@ using Services.IRepository;
 namespace GestionPersonasAPI.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ProvinciasController : ControllerBase
     {
         private readonly IProvinciaRepository _provinciaRepository;
         private readonly IMapper _mapper;
+        private readonly ILogger _logger;
 
-        public ProvinciasController(IProvinciaRepository provinciaRepository, IMapper mapper)
+        public ProvinciasController(IProvinciaRepository provinciaRepository, IMapper mapper, ILogger<ProvinciasController> logger)
         {
             _provinciaRepository = provinciaRepository;
             _mapper = mapper;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -32,8 +34,8 @@ namespace GestionPersonasAPI.Controllers
             }
             catch (Exception e)
             {
-
-                throw e;
+                _logger.LogError(e, "Error al obtener provincias.");
+                return BadRequest(e.Message);
             }
 
         }

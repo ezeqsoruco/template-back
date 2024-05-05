@@ -1,5 +1,6 @@
 ﻿using Models.Entities;
 using Services.IRepository;
+using Microsoft.EntityFrameworkCore;
 
 namespace BaseDeDatos.Repository
 {
@@ -11,8 +12,16 @@ namespace BaseDeDatos.Repository
 
         public async Task<List<Provincia>> GetProvincias()
         {
-            var provincias = Context.Provincias.ToList();
-            return provincias;
+            try
+            {
+                var provincias = await Context.Provincias.ToListAsync();
+                return provincias;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
         }
     }
 }

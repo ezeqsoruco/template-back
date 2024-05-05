@@ -34,8 +34,8 @@ namespace BaseDeDatos.Migrations
                     Dni = table.Column<long>(type: "bigint", nullable: false),
                     Telefono = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FechaAlta = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FechaModificacion = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FechaBaja = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    FechaModificacion = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    FechaBaja = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -47,6 +47,12 @@ namespace BaseDeDatos.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Personas_Dni",
+                table: "Personas",
+                column: "Dni",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Personas_ProvinciaId",

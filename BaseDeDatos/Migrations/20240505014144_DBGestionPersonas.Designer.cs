@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BaseDeDatos.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240503004845_DBGestionPersonas")]
+    [Migration("20240505014144_DBGestionPersonas")]
     partial class DBGestionPersonas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,10 +42,10 @@ namespace BaseDeDatos.Migrations
                     b.Property<DateTime>("FechaAlta")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaBaja")
+                    b.Property<DateTime?>("FechaBaja")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaModificacion")
+                    b.Property<DateTime?>("FechaModificacion")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nombre")
@@ -60,6 +60,9 @@ namespace BaseDeDatos.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Dni")
+                        .IsUnique();
 
                     b.HasIndex("ProvinciaId");
 
@@ -86,12 +89,17 @@ namespace BaseDeDatos.Migrations
             modelBuilder.Entity("Models.Entities.Persona", b =>
                 {
                     b.HasOne("Models.Entities.Provincia", "Provincia")
-                        .WithMany()
+                        .WithMany("Personas")
                         .HasForeignKey("ProvinciaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Provincia");
+                });
+
+            modelBuilder.Entity("Models.Entities.Provincia", b =>
+                {
+                    b.Navigation("Personas");
                 });
 #pragma warning restore 612, 618
         }
